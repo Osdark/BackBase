@@ -1,8 +1,8 @@
 package com.cyclops.template.adapters.primary;
 
-import com.cyclops.template.facades.query.HelloWorldQueryFacade;
-import com.cyclops.template.ports.primary.HelloWorldController;
-import com.cyclops.template.requests.GreetingDTO;
+import com.cyclops.template.facades.query.greeting.HelloWorldQueryFacade;
+import com.cyclops.template.ports.primary.greeting.HelloWorldController;
+import com.cyclops.template.requests.greeting.GreetingDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

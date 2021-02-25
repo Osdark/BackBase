@@ -1,8 +1,8 @@
 package com.cyclops.template.adapters.primary;
 
-import com.cyclops.template.domain.Greeting;
-import com.cyclops.template.ports.primary.HelloWorldService;
-import com.cyclops.template.ports.secondary.HelloWorldRepository;
+import com.cyclops.template.domain.greeting.Greeting;
+import com.cyclops.template.ports.primary.greeting.HelloWorldService;
+import com.cyclops.template.ports.secondary.greeting.HelloWorldRepository;
 import org.springframework.stereotype.Component;
 
 @Component

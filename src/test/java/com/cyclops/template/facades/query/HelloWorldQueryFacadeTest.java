@@ -1,6 +1,8 @@
 package com.cyclops.template.facades.query;
 
-import com.cyclops.template.ports.primary.HelloWorldService;
+import com.cyclops.template.facades.query.greeting.HelloWorldQueryFacade;
+import com.cyclops.template.facades.query.greeting.HelloWorldQueryFacadeImpl;
+import com.cyclops.template.ports.primary.greeting.HelloWorldService;
 import org.junit.jupiter.api.Test;
 
 import static org.mockito.Mockito.mock;

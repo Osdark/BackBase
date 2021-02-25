@@ -1,11 +1,11 @@
-package com.cyclops.template.facades.query;
+package com.cyclops.template.facades.query.greeting;
 
 import com.cyclops.template.converter.Converter;
-import com.cyclops.template.domain.Greeting;
+import com.cyclops.template.domain.greeting.Greeting;
 import com.cyclops.template.populators.Populator;
 import com.cyclops.template.populators.greeting.GreetingOutgoingPopulator;
-import com.cyclops.template.ports.primary.HelloWorldService;
-import com.cyclops.template.requests.GreetingDTO;
+import com.cyclops.template.ports.primary.greeting.HelloWorldService;
+import com.cyclops.template.requests.greeting.GreetingDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

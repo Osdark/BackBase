@@ -1,0 +1,14 @@
+version: '3'
+networks:
+  microservices:
+    external: true
+services:
+  template:
+    build: .
+    image: template
+    container_name: template
+    ports:
+      - "8080:8080"
+      - "8000:8000"
+    networks:
+      microservices:

@@ -1,4 +1,4 @@
-package com.cyclops.template.domain;
+package com.cyclops.template.domain.greeting;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

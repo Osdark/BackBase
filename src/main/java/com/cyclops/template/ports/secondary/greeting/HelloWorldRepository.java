@@ -1,6 +1,6 @@
-package com.cyclops.template.ports.secondary;
+package com.cyclops.template.ports.secondary.greeting;
 
-import com.cyclops.template.domain.Greeting;
+import com.cyclops.template.domain.greeting.Greeting;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

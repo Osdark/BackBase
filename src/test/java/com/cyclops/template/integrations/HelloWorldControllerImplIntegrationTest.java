@@ -1,7 +1,7 @@
 package com.cyclops.template.integrations;
 
-import com.cyclops.template.domain.Greeting;
-import com.cyclops.template.ports.secondary.HelloWorldRepository;
+import com.cyclops.template.domain.greeting.Greeting;
+import com.cyclops.template.ports.secondary.greeting.HelloWorldRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

@@ -1,7 +1,7 @@
 package com.cyclops.template.adapters.primary;
 
-import com.cyclops.template.ports.primary.HelloWorldService;
-import com.cyclops.template.ports.secondary.HelloWorldRepository;
+import com.cyclops.template.ports.primary.greeting.HelloWorldService;
+import com.cyclops.template.ports.secondary.greeting.HelloWorldRepository;
 import org.junit.jupiter.api.Test;
 
 import static org.mockito.Mockito.mock;

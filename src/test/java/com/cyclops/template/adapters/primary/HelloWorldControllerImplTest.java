@@ -1,7 +1,6 @@
 package com.cyclops.template.adapters.primary;
 
-import com.cyclops.template.adapters.primary.HelloWorldControllerImpl;
-import com.cyclops.template.facades.query.HelloWorldQueryFacade;
+import com.cyclops.template.facades.query.greeting.HelloWorldQueryFacade;
 import org.junit.jupiter.api.Test;
 
 import static org.mockito.Mockito.mock;

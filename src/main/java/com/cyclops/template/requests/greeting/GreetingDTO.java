@@ -1,4 +1,4 @@
-package com.cyclops.template.requests;
+package com.cyclops.template.requests.greeting;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

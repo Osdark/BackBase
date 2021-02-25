@@ -5,6 +5,7 @@ plugins {
 	id 'idea'
 	id 'jacoco'
 	id "au.com.dius.pact" version "4.1.0"
+	id "com.github.onslip.gradle-one-jar" version "1.0.6"
 }
 
 group = 'com.cyclops'
@@ -47,4 +48,10 @@ test {
 
 jacocoTestReport {
 	dependsOn test
+}
+
+tasks {
+	bootJar {
+		archiveFileName.set("template.jar")
+	}
 }
