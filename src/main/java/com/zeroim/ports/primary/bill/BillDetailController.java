@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.UUID;
 
-@RequestMapping("/billDetail")
+@RequestMapping("/admin/billDetail")
 public interface BillDetailController {
     @GetMapping("/getById")
     ResponseEntity<Response<BillDetailDTO>> getById(@RequestParam("id") UUID id);

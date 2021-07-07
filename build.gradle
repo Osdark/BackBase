@@ -13,6 +13,7 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
 
 apply plugin: 'au.com.dius.pact'
+apply plugin: 'org.springframework.boot'
 
 repositories {
 	mavenCentral()
@@ -31,6 +32,10 @@ dependencies {
 	runtimeOnly 'com.h2database:h2'
 	compileOnly 'org.projectlombok:lombok:1.18.8'
 	annotationProcessor 'org.projectlombok:lombok:1.18.8'
+
+	compile group: 'io.springfox', name: 'springfox-swagger2', version: '3.0.0'
+	compile group: 'io.springfox', name: 'springfox-swagger-ui', version: '3.0.0'
+	compile group: 'io.springfox', name: 'springfox-boot-starter', version: '3.0.0'
 }
 
 test {

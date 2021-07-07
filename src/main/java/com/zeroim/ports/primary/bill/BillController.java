@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
 import java.util.UUID;
 
-@RequestMapping("/bill")
+@RequestMapping("/admin/bill")
 public interface BillController {
     @PostMapping
     ResponseEntity<Response<BillDTO>> create(CreateBillDTO createBillDTO);
