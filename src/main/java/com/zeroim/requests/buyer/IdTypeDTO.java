@@ -1,18 +1,16 @@
-package com.zeroim.requests.bill;
+package com.zeroim.requests.buyer;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
 import java.util.UUID;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class BillDetailDTO {
+public class IdTypeDTO {
     private UUID id;
-    private UUID productId;
-    private Integer quantity;
-    private BigDecimal value;
+    private String abbreviation;
+    private String name;
 }

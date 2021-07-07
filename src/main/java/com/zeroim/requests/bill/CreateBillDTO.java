@@ -10,6 +10,6 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CreateBillDTO {
-    BillDTO billDTO;
+    NewBillDTO billDTO;
     List<BillDetailDTO> billDetailDTOS;
 }

@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -18,8 +19,8 @@ public class Bill {
     @Id
     private UUID id;
     private Date date;
-    private Long clientId;
-    private Long[] billDetail;
+    private UUID clientId;
+    private UUID[] billDetail;
     private BigDecimal total;
     private boolean paidOut;
 }

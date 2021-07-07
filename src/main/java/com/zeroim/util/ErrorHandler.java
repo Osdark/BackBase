@@ -11,8 +11,8 @@ public class ErrorHandler {
     @ExceptionHandler(value = Exception.class)
     public ResponseEntity<Response<String>> handleException(Exception e) {
         Response<String> response = new Response<>();
-        response.setData("Exception");
-        response.setError(new ResError(404, "Not found"));
+        response.setData(e.getClass().toString());
+        response.setError(new ResError(404, e.getMessage()));
         return ResponseEntity.badRequest().body(response);
     }
 }

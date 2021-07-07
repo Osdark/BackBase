@@ -7,15 +7,19 @@ import com.zeroim.populators.Populator;
 import com.zeroim.populators.bill.BillDetailRequestPopulator;
 import com.zeroim.populators.bill.BillRequestPopulator;
 import com.zeroim.populators.bill.BillResponsePopulator;
+import com.zeroim.populators.bill.NewBillPopulator;
 import com.zeroim.ports.primary.bill.BillDetailService;
 import com.zeroim.ports.primary.bill.BillService;
 import com.zeroim.requests.bill.BillDTO;
 import com.zeroim.requests.bill.BillDetailDTO;
 import com.zeroim.requests.bill.CreateBillDTO;
+import com.zeroim.requests.bill.NewBillDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Component
 public class DefaultBillOperations implements BillOperations {
@@ -31,9 +35,27 @@ public class DefaultBillOperations implements BillOperations {
 
     @Override
     public BillDTO createBill(CreateBillDTO billDTO) {
-        billDetailService.massiveCreation(convertBillDetailList(billDTO.getBillDetailDTOS()));
-        Bill billSaved = billService.create(convertBillDTO(billDTO.getBillDTO()));
-        return convertBill(billSaved);
+        List<BillDetail> billDetailDTOList = convertBillDetailList(billDTO.getBillDetailDTOS());
+        billDetailDTOList.forEach(billDetail -> billDetail.setId(UUID.randomUUID()));
+        billDetailDTOList = billDetailService.massiveCreation(billDetailDTOList);
+        Bill billToSave = getNewBillDTO(billDTO.getBillDTO());
+        UUID[] billDetailIds = new UUID[billDetailDTOList.size()];
+        for (int i = 0; i < billDetailDTOList.size(); i++) {
+            billDetailIds[i] = billDetailDTOList.get(i).getId();
+        }
+        billToSave.setBillDetail(billDetailIds);
+        billToSave = billService.create(billToSave);
+        return convertBill(billToSave);
+    }
+
+    private Bill getNewBillDTO(NewBillDTO newBillDTO) {
+        Converter<NewBillDTO, Bill> newBillConverter = buildNewBillConverter();
+        return newBillConverter.convert(newBillDTO);
+    }
+
+    private Converter<NewBillDTO, Bill> buildNewBillConverter() {
+        Populator<NewBillDTO, Bill> newBillPopulator = new NewBillPopulator();
+        return Converter.of(Bill.class).withPopulator(newBillPopulator);
     }
 
     private BillDTO convertBill(Bill bill) {
@@ -44,16 +66,6 @@ public class DefaultBillOperations implements BillOperations {
     private Converter<Bill, BillDTO> buildBillResponseConverter() {
         Populator<Bill, BillDTO> responsePopulator = new BillResponsePopulator();
         return Converter.of(BillDTO.class).withPopulator(responsePopulator);
-    }
-
-    private Bill convertBillDTO(BillDTO billDTO) {
-        Converter<BillDTO, Bill> requestConverter = buildBillRequestConverter();
-        return requestConverter.convert(billDTO);
-    }
-
-    private Converter<BillDTO, Bill> buildBillRequestConverter() {
-        Populator<BillDTO, Bill> requestPopulator = new BillRequestPopulator();
-        return Converter.of(Bill.class).withPopulator(requestPopulator);
     }
 
     private List<BillDetail> convertBillDetailList(List<BillDetailDTO> billDetailDTOS) {

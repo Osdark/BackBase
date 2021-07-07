@@ -16,7 +16,7 @@ import java.util.UUID;
 public class BillDetail {
     @Id
     private UUID id;
-    private Long productId;
+    private UUID productId;
     private Integer quantity;
     private BigDecimal value;
 }
