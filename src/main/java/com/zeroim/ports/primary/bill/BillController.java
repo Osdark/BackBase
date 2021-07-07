@@ -2,6 +2,7 @@ package com.zeroim.ports.primary.bill;
 
 import com.zeroim.requests.bill.BillDTO;
 import com.zeroim.requests.bill.CreateBillDTO;
+import com.zeroim.requests.util.Response;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,11 +15,11 @@ import java.util.UUID;
 @RequestMapping("/bill")
 public interface BillController {
     @PostMapping
-    ResponseEntity<BillDTO> create(CreateBillDTO createBillDTO);
+    ResponseEntity<Response<BillDTO>> create(CreateBillDTO createBillDTO);
 
     @GetMapping
-    ResponseEntity<List<BillDTO>> getAll();
+    ResponseEntity<Response<List<BillDTO>>> getAll();
 
     @GetMapping("/getById")
-    ResponseEntity<BillDTO> getById(@RequestParam("id") UUID id);
+    ResponseEntity<Response<BillDTO>> getById(@RequestParam("id") UUID id);
 }

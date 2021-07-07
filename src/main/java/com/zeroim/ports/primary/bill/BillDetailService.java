@@ -9,7 +9,7 @@ import java.util.UUID;
 public interface BillDetailService {
     BillDetail getById(UUID id);
 
-    BillDetail create(BillDetailDTO billDetailDTO);
+    BillDetail create(BillDetail billDetail);
 
     List<BillDetail> massiveCreation(List<BillDetail> billDetails);
 }
